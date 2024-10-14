@@ -1,7 +1,5 @@
 package pe.com.cibertec.Examen_T2_Jean_Yacarini_Pastrana.model;
 
-import java.util.Date;
-import org.springframework.format.annotation.DateTimeFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -30,18 +28,16 @@ public class EmpleadoEntity {
 
     @Column(name = "apellido_empleado", nullable = false, length = 45)
     private String apellido_empleado;
-    
-    @Column(name = "fecha_nacimiento", nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date fecha_nacimiento;
+
+    @Column(name = "fecha_nacimiento", nullable = false, length = 10) // Se establece una longitud para el formato de fecha
+    private String fecha_nacimiento; // Cambiado a String
     
     @Column(name = "direccion", nullable = false, length = 45)
     private String direccion;
     
     @Column(name = "correo", nullable = false, length = 45)
     private String correo;
-    
-    
+
     // Relación ManyToOne
     @ManyToOne
     @JoinColumn(name = "area_id", nullable = false)  // Define la clave foránea

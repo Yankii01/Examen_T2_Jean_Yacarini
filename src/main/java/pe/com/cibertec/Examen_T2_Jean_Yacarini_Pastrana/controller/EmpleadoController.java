@@ -42,6 +42,8 @@ public class EmpleadoController {
     // Guardar un nuevo empleado
     @PostMapping("/guardar")
     public String guardarEmpleado(@ModelAttribute("empleado") EmpleadoEntity empleado) {
+        // Asegúrate de que la fecha esté en el formato correcto antes de guardar
+       
         empleadoService.guardarEmpleado(empleado);
         return "redirect:/empleados";
     }
@@ -58,6 +60,8 @@ public class EmpleadoController {
     // Actualizar un empleado existente
     @PostMapping("/actualizar/{dni}")
     public String actualizarEmpleado(@PathVariable String dni, @ModelAttribute("empleado") EmpleadoEntity empleado) {
+        // Asegúrate de que la fecha esté en el formato correcto antes de actualizar
+        
         empleadoService.actualizarEmpleado(empleado);
         return "redirect:/empleados";
     }
